@@ -1,4 +1,4 @@
 
 module.exports = (app) => {
-    app.get('/', (req, res) => res.send('Hello World!'))
+    app.use(`/api/v${process.env.API_VERSION}`, require('./auth'));
 };
