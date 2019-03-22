@@ -1,16 +1,57 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http'; 
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector:     'app-login',
+  templateUrl:  './login.component.html',
+  styleUrls:    ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  successMessage: string  = ""
-  errorMessage: string    = ""
-  constructor() { }
+  private successMessage: string  = ""
+  private errorMessage: string    = ""
+  private _model: any = {};  
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+  }
+
+  private submit(): void {  
+      
+    if (this.validate()) {  
+        let self = this;  
+        let headers = new HttpHeaders();  
+        headers.append('Content-Type', 'multipart/form-data; charset=utf-8');
+
+        this.http.post("http://localhost:3000/api/v0.0.1/login", this._model, {
+          headers: headers
+        }).subscribe((res:any) => { 
+            if(res.status === 0){
+              this.successMessage = "Successful login";
+              this.errorMessage   = "";
+            }
+            else{
+                this.successMessage = "";
+                this.errorMessage   = "Wrong username or password";
+            }
+              
+          });  
+          
+    }  
+  }    
+
+  private validate(): boolean {  
+    let status: boolean = true;  
+    if (this._model.username == null || this._model.username == "") {  
+        this.errorMessage = "Please fill the user id."  
+        status = false;  
+    }  
+    if (this._model.password == null || this._model.password == "") {  
+        this.errorMessage = "Please fill the password."  
+        status = false;  
+    }  
+
+    return status;
   }
 
 }
