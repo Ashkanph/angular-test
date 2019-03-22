@@ -8,13 +8,13 @@ const encryption    = require('../helpers/encryption');
 module.exports = router;
 
 router.post("/login", (req, res, next) => {
-    if(!req.query.username || !req.query.password){
+    if(!req.body.username || !req.body.password){
         //"Username and password are required."
         next(new Error("3"));
         return;
     }
     
-    User.findUser(req.query.username, req.query.password).then(
+    User.findUser(req.body.username, req.body.password).then(
         (user) => {
             // user has authenticated correctly thus we create a JWT token and return it
             var token = jwt.sign({
