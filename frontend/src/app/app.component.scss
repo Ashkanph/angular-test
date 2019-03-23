@@ -1,4 +1,10 @@
 
-.app{
+@import "./variables.scss";
+
+.content, .app, .container{
     height: 100%;
+}
+
+.content{
+    padding-top: $header-height;
 }

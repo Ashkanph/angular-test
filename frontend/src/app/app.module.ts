@@ -9,13 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
 import { AuthService } from './auth.service';
 import { ProfileComponent } from './profile/profile.component'; 
-import { AuthGuard } from './auth/auth.guard'; 
+import { AuthGuard } from './auth/auth.guard';
+import { HeaderComponent } from './components/header/header.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProfileComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

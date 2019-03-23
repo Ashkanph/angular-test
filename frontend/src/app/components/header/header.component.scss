@@ -1,0 +1,11 @@
+
+@import "../../variables.scss";
+
+.header{
+    position: fixed;
+    height: $header-height;
+    left: 0;
+    right: 0;
+    background-color: #424242;
+    color: #ededed;
+}
