@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'; 
+import * as sha1 from 'sha1'; 
 
 @Component({
   selector:     'app-login',
@@ -23,7 +24,10 @@ export class LoginComponent implements OnInit {
         let headers = new HttpHeaders();  
         headers.append('Content-Type', 'multipart/form-data; charset=utf-8');
 
-        this.http.post("http://localhost:3000/api/v0.0.1/login", this._model, {
+        this.http.post("http://localhost:3000/api/v0.0.1/login", {
+          username: this._model.username,
+          password: sha1(this._model.password)
+        }, {
           headers: headers
         }).subscribe((res:any) => { 
             if(res.status === 0){
@@ -34,7 +38,6 @@ export class LoginComponent implements OnInit {
                 this.successMessage = "";
                 this.errorMessage   = "Wrong username or password";
             }
-              
           });  
           
     }  
