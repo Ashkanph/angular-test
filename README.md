@@ -1,5 +1,5 @@
 
-A tentative project with NodeJs-Angular7.
+A tentative project with NodeJs-Angular4.
 
 ## Backend
 
@@ -17,4 +17,4 @@ A nodeJS backend application to serve the REST application.
 
 ## Frontend
 
-An Angular 7 web application.
+An Angular 4 web application. For developing, after installing the dependencies by ``npm install`` , You can open the project by ``ng serve --open`` (Which watch the changes too).
