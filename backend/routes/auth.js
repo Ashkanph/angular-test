@@ -37,3 +37,12 @@ router.post("/login", (req, res, next) => {
         }
     );
 });
+
+router.get("/logout", (req, res, next) => {
+    req.logout();
+    
+    res.json(Object.assign(req.base, {
+        status: 0,
+        message: "Successful logout."
+    }));
+});

@@ -28,9 +28,7 @@ function findUser(userId, password) {
                             (err, match)=>{
                                 if(err || !match)
                                     reject("No user.");
-                                else{
-                                    console.warn("resssssssss: ", results[0]);
-                                    
+                                else{                                    
                                     resolve({
                                         id: results[0].id,
                                         name: results[0].name,
