@@ -8,4 +8,12 @@
     right: 0;
     background-color: #424242;
     color: #ededed;
+
+    .fa-sign-out{
+        position: absolute;
+        left: 10px;
+        font-size: 2rem;
+        color: #ec5250;
+        cursor: pointer;
+    }
 }
