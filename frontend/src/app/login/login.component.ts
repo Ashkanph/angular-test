@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http'; 
 import * as sha1 from 'sha1'; 
 import { AuthService } from '../auth.service'; 
@@ -14,14 +15,15 @@ export class LoginComponent implements OnInit {
   private _model: any = {};  
 
   constructor(private http: HttpClient,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
   private submit(): void {  
       
-    if (this.validate()) {  
+    if (this.validate()) {
         let self = this;  
         let headers = new HttpHeaders();  
         headers.append('Content-Type', 'multipart/form-data; charset=utf-8');
@@ -40,6 +42,7 @@ export class LoginComponent implements OnInit {
                 name:     res.name,
                 id:       res.id
               });              
+              this.router.navigate(['/profile'])
             }
             else{
                 this.successMessage = "";

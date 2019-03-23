@@ -1,0 +1,33 @@
+
+
+.profile{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+
+    .card-img{
+        padding-top: 1rem;
+        justify-content: center;
+        text-align: center;
+        .fa-user{
+            border-radius: 100%;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: gray;
+            color: white;
+            font-size: 5rem;
+        }
+    }
+
+    .card-body{
+        text-align: center;
+    }
+
+    .label{
+        float: left;
+    }
+    .data{
+        float: right;
+    }
+}

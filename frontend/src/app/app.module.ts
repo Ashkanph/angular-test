@@ -7,12 +7,14 @@ import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
-import { AuthService } from './auth.service'; 
+import { AuthService } from './auth.service';
+import { ProfileComponent } from './profile/profile.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
