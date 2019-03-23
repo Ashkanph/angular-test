@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { ProfileComponent } from './profile/profile.component'; 
 import { AuthGuard } from './auth/auth.guard';
-import { HeaderComponent } from './components/header/header.component'; 
+import { HeaderComponent } from './components/header/header.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component'; 
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HeaderComponent } from './components/header/header.component';
     LoginComponent,
     ProfileComponent,
     HeaderComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
