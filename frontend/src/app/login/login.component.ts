@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'; 
 import * as sha1 from 'sha1'; 
+import { AuthService } from '../auth.service'; 
 
 @Component({
   selector:     'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   private errorMessage: string    = ""
   private _model: any = {};  
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -33,6 +35,11 @@ export class LoginComponent implements OnInit {
             if(res.status === 0){
               this.successMessage = "Successful login";
               this.errorMessage   = "";
+              this.authService.setCurrentUser({
+                username: res.userId,
+                name:     res.name,
+                id:       res.id
+              });              
             }
             else{
                 this.successMessage = "";
