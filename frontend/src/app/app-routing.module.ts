@@ -2,6 +2,7 @@ import { NgModule }             from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent }     from './profile/profile.component';
 import { LoginComponent }       from './login/login.component';
+import { AuthGuard }       from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -16,18 +17,14 @@ const routes: Routes = [
   },
   { 
     path: 'profile', 
+    canActivate: [AuthGuard],
     component: ProfileComponent,
     pathMatch: 'full'
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,
-    { 
-      enableTracing: true,
-      useHash: false  
-    } // <-- debugging purposes only
-    )],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

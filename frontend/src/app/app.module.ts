@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
 import { AuthService } from './auth.service';
 import { ProfileComponent } from './profile/profile.component'; 
+import { AuthGuard } from './auth/auth.guard'; 
 
 @NgModule({
   declarations: [
@@ -20,10 +21,11 @@ import { ProfileComponent } from './profile/profile.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
